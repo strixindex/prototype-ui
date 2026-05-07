@@ -15,6 +15,8 @@ export function ThreadView({ interrupt }: ThreadViewProps) {
   const [showState, setShowState] = useState(false);
   const showSidePanel = showDescription || showState;
 
+  console.log(interrupt, "wjfeh");
+
   const handleShowSidePanel = (
     showState: boolean,
     showDescription: boolean,

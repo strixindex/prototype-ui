@@ -5,6 +5,9 @@ import { getContentString } from "../utils";
 import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
 import { BranchSwitcher, CommandBar } from "./shared";
+import { isAgentInboxInterruptSchema } from "@/lib/agent-inbox-interrupt";
+import { ThreadView } from "../agent-inbox";
+import { GenericInterruptView } from "./generic-interrupt";
 
 function EditableContent({
   value,
@@ -47,6 +50,11 @@ export function HumanMessage({
   const [value, setValue] = useState("");
   const contentString = getContentString(message.content);
 
+  const isLastMessage =
+    thread.messages[thread.messages.length - 1]?.id === message?.id;
+
+  const threadInterrupt = thread.interrupt;
+
   const handleSubmitEdit = () => {
     setIsEditing(false);
 
@@ -88,6 +96,14 @@ export function HumanMessage({
             {contentString}
           </p>
         )}
+
+        {isAgentInboxInterruptSchema(threadInterrupt?.value) &&
+          isLastMessage && <ThreadView interrupt={threadInterrupt.value} />}
+        {threadInterrupt?.value &&
+        !isAgentInboxInterruptSchema(threadInterrupt.value) &&
+        isLastMessage ? (
+          <GenericInterruptView interrupt={threadInterrupt.value} />
+        ) : null}
 
         <div
           className={cn(
