@@ -162,13 +162,13 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
         <div className="animate-in fade-in-0 zoom-in-95 flex flex-col border bg-background shadow-lg rounded-lg max-w-3xl">
           <div className="flex flex-col gap-2 mt-14 p-6 border-b">
             <div className="flex items-start flex-col gap-2">
-              <LangGraphLogoSVG className="h-7" />
-              <h1 className="text-xl font-semibold tracking-tight">
-                Agent Chat
-              </h1>
+              <img src="/logo_black.svg" alt="StrixIndex" className="flex-shrink-0 h-8 object-contain" />
+                <h1 className="text-3xl font-semibold tracking-tight">
+                  STRIX<span className="font-light text-gray-400">INDEX</span>
+                </h1>
             </div>
             <p className="text-muted-foreground">
-              Welcome to Agent Chat! Before you get started, you need to enter
+              Welcome to Strixindex! Before you get started, you need to enter
               the URL of the deployment and the assistant / graph ID.
             </p>
           </div>

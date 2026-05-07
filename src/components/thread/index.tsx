@@ -76,22 +76,7 @@ function ScrollToBottom(props: { className?: string }) {
 
 function OpenGitHubRepo() {
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <a
-            href="https://github.com/langchain-ai/agent-chat-ui"
-            target="_blank"
-            className="flex items-center justify-center"
-          >
-            <GitHubSVG width="24" height="24" />
-          </a>
-        </TooltipTrigger>
-        <TooltipContent side="left">
-          <p>Open GitHub repo</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <div></div>
   );
 }
 
@@ -299,9 +284,9 @@ export function Thread() {
                   damping: 30,
                 }}
               >
-                <LangGraphLogoSVG width={32} height={32} />
+                <img src="/logo_black.svg" alt="StrixIndex" className="w-8 h-8 object-contain" />
                 <span className="text-xl font-semibold tracking-tight">
-                  Agent Chat
+                  STRIX<span className="font-light text-gray-400">INDEX</span>
                 </span>
               </motion.button>
             </div>
@@ -371,12 +356,16 @@ export function Thread() {
             footer={
               <div className="sticky flex flex-col items-center gap-8 bottom-0 bg-white">
                 {!chatStarted && (
-                  <div className="flex gap-3 items-center">
-                    <LangGraphLogoSVG className="flex-shrink-0 h-8" />
-                    <h1 className="text-2xl font-semibold tracking-tight">
-                      Agent Chat
+                  <div className="flex gap-2 flex-col items-center">
+                    <div className="flex gap-3 items-center">
+                    <img src="/logo_black.svg" alt="StrixIndex" className="flex-shrink-0 h-8 object-contain" />
+                    <h1 className="text-3xl font-semibold tracking-tight">
+                      STRIX<span className="font-light text-gray-400">INDEX</span>
                     </h1>
+                    </div>
+                    <p className="text-sm text-gray-400">Akses Demo. Mohon hindari membagikan data pribadi Anda.</p>
                   </div>
+          
                 )}
 
                 <ScrollToBottom className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 animate-in fade-in-0 zoom-in-95" />
