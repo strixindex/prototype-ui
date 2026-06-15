@@ -13,6 +13,7 @@ import { isAgentInboxInterruptSchema } from "@/lib/agent-inbox-interrupt";
 import { ThreadView } from "../agent-inbox";
 import { useQueryState, parseAsBoolean } from "nuqs";
 import { GenericInterruptView } from "./generic-interrupt";
+import { Loader } from "lucide-react";
 
 function CustomComponent({
   message,
@@ -108,8 +109,6 @@ export function AssistantMessage({
   const hasAnthropicToolCalls = !!anthropicStreamedToolCalls?.length;
   const isToolResult = message?.type === "tool";
 
-  console.log(isLastMessage, hasNoAIOrToolMessages, thread.messages, message);
-
   if (isToolResult && hideToolCalls) {
     return null;
   }
@@ -175,11 +174,10 @@ export function AssistantMessage({
 
 export function AssistantMessageLoading() {
   return (
-    <div className="flex items-start mr-auto gap-2">
-      <div className="flex items-center gap-1 rounded-2xl bg-muted px-4 py-2 h-8">
-        <div className="w-1.5 h-1.5 rounded-full bg-foreground/50 animate-[pulse_1.5s_ease-in-out_infinite]"></div>
-        <div className="w-1.5 h-1.5 rounded-full bg-foreground/50 animate-[pulse_1.5s_ease-in-out_0.5s_infinite]"></div>
-        <div className="w-1.5 h-1.5 rounded-full bg-foreground/50 animate-[pulse_1.5s_ease-in-out_1s_infinite]"></div>
+    <div className="flex justify-start w-full">
+      <div className="w-full border border-white/8 rounded-xl px-4 py-3 flex items-center gap-2.5">
+        <Loader size={14} className="text-neutral-500 animate-spin shrink-0" />
+        <span className="text-sm text-neutral-500">Berpikir...</span>
       </div>
     </div>
   );
