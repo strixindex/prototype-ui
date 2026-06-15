@@ -212,7 +212,18 @@ export function Thread() {
           disabled={!input.trim()}
           className="mb-1 p-1.5 rounded-lg text-cyan-400 hover:text-cyan-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors shrink-0"
         >
-          <Send size={20} />
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="url(#sendGradient)" xmlns="http://www.w3.org/2000/svg"
+          style={{ transform: "rotate(-35deg)" }}
+        >
+          <defs>
+            <linearGradient id="sendGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#a3ffb0"/>
+              <stop offset="50%" stopColor="#00e5ff"/>
+              <stop offset="100%" stopColor="#0090ff"/>
+            </linearGradient>
+          </defs>
+          <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z"/>
+        </svg>
         </motion.button>
       )}
     </div>
