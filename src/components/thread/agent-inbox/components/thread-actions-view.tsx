@@ -108,47 +108,7 @@ export function ThreadActionsView({
       <div className="flex flex-wrap items-center justify-between w-full gap-3">
         <div className="flex items-center justify-start gap-3">
           <p className="text-2xl tracking-tighter text-pretty">{threadTitle}</p>
-          {threadId && <ThreadIdCopyable threadId={threadId} />}
         </div>
-        <div className="flex flex-row gap-2 items-center justify-start">
-          {apiUrl && (
-            <Button
-              size="sm"
-              variant="outline"
-              className="flex items-center gap-1 bg-white"
-              onClick={handleOpenInStudio}
-            >
-              Studio
-            </Button>
-          )}
-          <ButtonGroup
-            handleShowState={() => handleShowSidePanel(true, false)}
-            handleShowDescription={() => handleShowSidePanel(false, true)}
-            showingState={showState}
-            showingDescription={showDescription}
-          />
-        </div>
-      </div>
-
-      <div className="flex flex-row gap-2 items-center justify-start w-full">
-        <Button
-          variant="outline"
-          className="text-gray-800 border-gray-500 font-normal bg-white"
-          onClick={handleResolve}
-          disabled={actionsDisabled}
-        >
-          Mark as Resolved
-        </Button>
-        {ignoreAllowed && (
-          <Button
-            variant="outline"
-            className="text-gray-800 border-gray-500 font-normal bg-white"
-            onClick={handleIgnore}
-            disabled={actionsDisabled}
-          >
-            Ignore
-          </Button>
-        )}
       </div>
 
       {/* Actions */}

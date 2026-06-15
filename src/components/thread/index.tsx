@@ -12,12 +12,7 @@ import {
   ensureToolCallsHaveResponses,
 } from "@/lib/ensure-tool-responses";
 import { TooltipIconButton } from "./tooltip-icon-button";
-import {
-  ArrowDown,
-  SquarePen,
-  Send,
-  Square,
-} from "lucide-react";
+import { ArrowDown, SquarePen, Square } from "lucide-react";
 import { useQueryState, parseAsBoolean } from "nuqs";
 import { StickToBottom, useStickToBottomContext } from "use-stick-to-bottom";
 import ThreadHistory from "./history";
@@ -212,18 +207,29 @@ export function Thread() {
           disabled={!input.trim()}
           className="mb-1 p-1.5 rounded-lg text-cyan-400 hover:text-cyan-300 disabled:opacity-30 disabled:cursor-not-allowed transition-colors shrink-0"
         >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="url(#sendGradient)" xmlns="http://www.w3.org/2000/svg"
-          style={{ transform: "rotate(-35deg)" }}
-        >
-          <defs>
-            <linearGradient id="sendGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#a3ffb0"/>
-              <stop offset="50%" stopColor="#00e5ff"/>
-              <stop offset="100%" stopColor="#0090ff"/>
-            </linearGradient>
-          </defs>
-          <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z"/>
-        </svg>
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="url(#sendGradient)"
+            xmlns="http://www.w3.org/2000/svg"
+            style={{ transform: "rotate(-35deg)" }}
+          >
+            <defs>
+              <linearGradient
+                id="sendGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop offset="0%" stopColor="#a3ffb0" />
+                <stop offset="50%" stopColor="#00e5ff" />
+                <stop offset="100%" stopColor="#0090ff" />
+              </linearGradient>
+            </defs>
+            <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" />
+          </svg>
         </motion.button>
       )}
     </div>
@@ -231,11 +237,6 @@ export function Thread() {
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-[#0f1012] text-foreground">
-      {/* Sidebar */}
-      <div className="relative hidden lg:flex h-screen shrink-0">
-        <ThreadHistory />
-      </div>
-
       {/* Main content */}
       <motion.div
         className="flex-1 flex flex-col min-w-0 overflow-hidden relative"
@@ -259,9 +260,17 @@ export function Thread() {
             onClick={() => setThreadId(null)}
             className="flex items-center gap-2 cursor-pointer"
           >
-            <img src="/logo2.svg" alt="StrixIndex" className="w-5 h-5 object-contain" />
-            <span className="text-white font-bold text-sm tracking-widest">STRIX</span>
-            <span className="text-gray-400 font-light text-sm tracking-widest">INDEX</span>
+            <img
+              src="/logo2.svg"
+              alt="StrixIndex"
+              className="w-5 h-5 object-contain"
+            />
+            <span className="text-white font-bold text-sm tracking-widest">
+              STRIX
+            </span>
+            <span className="text-gray-400 font-light text-sm tracking-widest">
+              INDEX
+            </span>
           </button>
 
           {/* Right — hanya tampil saat chat sudah dimulai */}
@@ -296,7 +305,8 @@ export function Thread() {
               <span
                 className="bg-clip-text text-transparent"
                 style={{
-                  backgroundImage: "linear-gradient(to right, #a3ffb0, #00e5ff, #0090ff)",
+                  backgroundImage:
+                    "linear-gradient(to right, #a3ffb0, #00e5ff, #0090ff)",
                   WebkitBackgroundClip: "text",
                   backgroundClip: "text",
                 }}
@@ -313,10 +323,7 @@ export function Thread() {
               Bertanya tanpa ragu dengan jawaban yang dapat diverifikasi
             </motion.p>
 
-            <motion.div
-              {...fadeUp(0.3)}
-              className="w-full max-w-2xl mt-5"
-            >
+            <motion.div {...fadeUp(0.3)} className="w-full max-w-3xl mt-5">
               {inputBox}
             </motion.div>
           </section>
@@ -325,7 +332,7 @@ export function Thread() {
           <StickToBottom className="relative flex-1 overflow-hidden">
             <StickyToBottomContent
               className="absolute inset-0 overflow-y-scroll scrollbar-thin grid grid-rows-[1fr_auto] px-4"
-              contentClassName="pt-8 pb-4 max-w-2xl mx-auto flex flex-col gap-4 w-full"
+              contentClassName="pt-8 pb-4 max-w-3xl mx-auto flex flex-col gap-4 w-full"
               content={
                 <>
                   {messages
@@ -354,13 +361,13 @@ export function Thread() {
                       handleRegenerate={handleRegenerate}
                     />
                   )}
-                  {isLoading && !firstTokenReceived && <AssistantMessageLoading />}
+                  {isLoading && <AssistantMessageLoading />}
                 </>
               }
               footer={
                 <div className="sticky bottom-0 flex flex-col items-center bg-[#0f1012]">
                   <ScrollToBottom className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 animate-in fade-in-0 zoom-in-95" />
-                  <div className="relative z-10 mx-auto pb-5 pt-2 w-full max-w-2xl px-4">
+                  <div className="relative z-10 mx-auto pb-5 pt-2 w-full max-w-3xl px-4">
                     {inputBox}
                     <p className="text-[11px] text-neutral-700 text-center mt-2">
                       AI dapat membuat kesalahan. Verifikasi informasi penting.

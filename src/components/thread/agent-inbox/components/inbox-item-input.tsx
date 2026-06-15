@@ -35,10 +35,10 @@ function ArgsRenderer({ args }: { args: Record<string, any> }) {
 
         return (
           <div key={`args-${k}`} className="flex flex-col gap-1 items-start">
-            <p className="text-sm leading-[18px] text-gray-600 text-wrap">
+            <p className="text-sm leading-[18px] text-white text-wrap">
               {prettifyText(k)}:
             </p>
-            <span className="text-[13px] leading-[18px] text-black bg-zinc-100 rounded-xl p-3 w-full max-w-full">
+            <span className="text-[13px] leading-[18px] text-white bg-[#2D3335] rounded-xl p-3 w-full max-w-full">
               <MarkdownText>{value}</MarkdownText>
             </span>
           </div>
@@ -106,7 +106,7 @@ function ResponseComponent({
   return (
     <div className="flex flex-col gap-4 p-6 items-start w-full rounded-xl border-[1px] border-gray-300">
       <div className="flex items-center justify-between w-full">
-        <p className="font-semibold text-black text-base">
+        <p className="font-semibold text-white text-base">
           Respond to assistant
         </p>
         <ResetButton

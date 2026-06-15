@@ -15,8 +15,6 @@ export function ThreadView({ interrupt }: ThreadViewProps) {
   const [showState, setShowState] = useState(false);
   const showSidePanel = showDescription || showState;
 
-  console.log(interrupt, "wjfeh");
-
   const handleShowSidePanel = (
     showState: boolean,
     showDescription: boolean,
@@ -38,7 +36,7 @@ export function ThreadView({ interrupt }: ThreadViewProps) {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row w-full h-[80vh] p-8 bg-gray-50/50 rounded-2xl overflow-y-scroll [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-transparent">
+    <div className="flex flex-col lg:flex-row w-full h-[80vh] p-8 bg-[#1D2021] rounded-2xl overflow-y-scroll [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-transparent">
       {showSidePanel ? (
         <StateView
           handleShowSidePanel={handleShowSidePanel}
